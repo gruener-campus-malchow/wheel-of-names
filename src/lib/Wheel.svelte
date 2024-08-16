@@ -16,14 +16,15 @@
                       stroke="black"
                       stroke-width=".01"
                       class={field.color} />
-                <text x="0" y="0"
-                      transform={`rotate(${field.label_angle * 360/TAU}) translate(.6)`}
-                      text-anchor="middle" dominant-baseline="central"
-                      fill="white" font-size={Math.min(1.5/field.label.length, .1)} class="font-sans font-bold">{field.label}</text>
+                <text x=".9" y="0"
+                      transform={`rotate(${field.label_angle * 360/TAU})`}
+                      text-anchor="end" dominant-baseline="central"
+                      fill="white" font-size={Math.min(1.25/field.label.length, .1)} class="font-sans font-bold">{field.label}</text>
             {/each}
         {/if}
+        <circle cx="0" cy="0" r=".1" class="fill-gray-50 dark:fill-neutral-900" stroke="black" stroke-width=".01" />
     </g>
 
     <path d="M1.05,-.1 A.2,.1 0 0 1 .85,0 .2,.1 0 0 1 1.05,.1"
-          fill="none" stroke="black" stroke-width=".02" stroke-linecap="round" stroke-linejoin="round" />
+          fill="none" stroke="black" class="dark:stroke-white" stroke-width=".02" stroke-linecap="round" stroke-linejoin="round" />
 </svg>

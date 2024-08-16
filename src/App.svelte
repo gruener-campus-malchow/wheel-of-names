@@ -14,6 +14,14 @@
 		color: ['fill-red-500', 'fill-amber-500', 'fill-green-600', 'fill-sky-600'][i % 4]
 	}))
 
+	function shuffle() {
+		name_input = names
+			.map(n => ({n, sort: Math.random()}))
+			.sort((a, b) => a.sort - b.sort)
+			.map(n => n.n)
+			.join('\n')
+	}
+
 	function roll() {
 		wheel_angle += TAU * (4 + Math.random())
 	}
@@ -24,7 +32,7 @@
 		<h1 class="text-3xl font-extrabold">wheel-of-names</h1>
 		<textarea class="input grow" bind:value={name_input}></textarea>
 		<div class="flex justify-between">
-			<div></div>
+			<button class="btn" on:click={shuffle}>shuffle</button>
 			<button class="btn" on:click={roll}>roll</button>
 		</div>
 	</div>

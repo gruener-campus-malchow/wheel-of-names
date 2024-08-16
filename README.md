@@ -1,5 +1,7 @@
 # wheel-of-names
 
+a simple vector-based wheel of ~~fortune~~ names
+
 getting started:
 ```bash
 cd wheel-of-names
