@@ -19,7 +19,7 @@
 	}
 </script>
 
-<main class="p-4 flex max-h-screen">
+<main class="p-4 flex max-sm:flex-col max-h-screen">
 	<div class="flex flex-col gap-2 shrink-0">
 		<h1 class="text-3xl font-extrabold">wheel-of-names</h1>
 		<textarea class="input grow" bind:value={name_input}></textarea>
