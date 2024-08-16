@@ -12,12 +12,12 @@
         @apply bg-gray-50;
     }
 
-    /*@media (prefers-color-scheme: dark) {
-        :root {
+    @media (prefers-color-scheme: dark) {
+        :root, body {
             color-scheme: dark;
             @apply bg-neutral-900 text-neutral-100;
         }
-    }*/
+    }
 }
 
 @layer utilities {
