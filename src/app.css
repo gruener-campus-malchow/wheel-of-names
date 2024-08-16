@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    /* wtf, tailwind? */
+    button, [role="button"] {
+        cursor: default;
+    }
+
+    body {
+        @apply bg-gray-50;
+    }
+
+    /*@media (prefers-color-scheme: dark) {
+        :root {
+            color-scheme: dark;
+            @apply bg-neutral-900 text-neutral-100;
+        }
+    }*/
+}
+
+@layer utilities {
+
+}
+
+@layer components {
+    .btn {
+        @apply py-2 px-4 rounded-lg bg-gray-200 hover:bg-gray-300 text-black dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:text-neutral-100 font-bold leading-none truncate select-none cursor-default;
+    }
+
+    .input {
+        @apply border-2 dark:border-neutral-600 dark:bg-neutral-900 rounded px-2 py-1 disabled:text-gray-600;
+    }
+
+    .loading::before {
+        @apply inline-block box-border align-middle;
+        content: '';
+        width: 1em;
+        height: 1em;
+        margin-right: .5em;
+        border: .25em solid;
+        border-color: currentColor currentColor transparent transparent;
+        border-radius: 50%;
+        animation: 1s spinner linear infinite;
+    }
+    @keyframes spinner {
+        from { transform: none }
+        to { transform: rotate(360deg) }
+    }
+    .btn.loading {
+        @apply relative bg-gray-200 text-gray-400 dark:bg-neutral-700 dark:text-neutral-500;
+    }
+    .btn.loading::before {
+        @apply absolute text-gray-600 dark:text-neutral-200 left-1/2;
+        translate: -50%;
+    }
+}
+
