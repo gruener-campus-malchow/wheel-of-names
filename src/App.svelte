@@ -2,7 +2,7 @@
 	import Wheel from './lib/Wheel.svelte'
 	const TAU = Math.PI * 2
 
-	let name_input = 'alice\nbob\ncharlie'
+	let name_input = localStorage.getItem('names') || 'alice\nbob\ncharlie'
 	$: names = name_input.split('\n')
 	let wheel_angle = 0
 
@@ -28,12 +28,16 @@
 		fields.forEach((_, i) => fields[i].is_winner = false)
 		setTimeout(() => fields[Math.floor(((-wheel_angle / TAU) % 1 + 1) * fields.length)].is_winner = true, 4000)
 	}
+
+	function save_names() {
+		localStorage.setItem('names', name_input)
+	}
 </script>
 
 <main class="p-4 flex max-sm:flex-col max-h-screen">
 	<div class="flex flex-col gap-2 shrink-0">
 		<h1 class="text-3xl font-extrabold">wheel-of-names</h1>
-		<textarea class="input grow" bind:value={name_input}></textarea>
+		<textarea class="input grow" bind:value={name_input} on:input={save_names}></textarea>
 		<div class="flex justify-between">
 			<button class="btn" on:click={shuffle}>shuffle</button>
 			<button class="btn" on:click={roll}>roll</button>
