@@ -11,7 +11,8 @@
 		start_angle: TAU * (i / names.length),
 		label_angle: TAU * ((i + .5) / names.length),
 		end_angle: TAU * ((i + 1) / names.length),
-		color: ['fill-red-500', 'fill-amber-500', 'fill-green-600', 'fill-sky-600'][i % 4]
+		color: ['fill-red-500', 'fill-amber-500', 'fill-green-600', 'fill-sky-600'][i % 4],
+		is_winner: false,
 	}))
 
 	function shuffle() {
@@ -24,6 +25,8 @@
 
 	function roll() {
 		wheel_angle += TAU * (4 + Math.random())
+		fields.forEach((_, i) => fields[i].is_winner = false)
+		setTimeout(() => fields[Math.floor(((-wheel_angle / TAU) % 1 + 1) * fields.length)].is_winner = true, 4000)
 	}
 </script>
 

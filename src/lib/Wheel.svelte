@@ -15,7 +15,7 @@
 								  Z`}
                       stroke="black"
                       stroke-width=".01"
-                      class={field.color} />
+                      class={field.color} class:winning-field={field.is_winner} />
                 <text x=".9" y="0"
                       transform={`rotate(${field.label_angle * 360/TAU})`}
                       text-anchor="end" dominant-baseline="central"
